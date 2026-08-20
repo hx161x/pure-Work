@@ -1,0 +1,53 @@
+workflows:
+  pure-work-android-test:
+    name: Pure Work – Android Test APK
+    max_build_duration: 60
+    environment:
+      vars:
+        PURE_WORK_URL: "https://YOUR-PURE-WORK-DOMAIN.TLD"
+        APP_ID: "de.purework.app"
+        APP_NAME: "Pure Work"
+    scripts:
+      - name: Install dependencies
+        script: npm install
+      - name: Configure Pure Work
+        script: node scripts/setup-app.mjs "$PURE_WORK_URL" "$APP_ID" "$APP_NAME" --noninteractive
+      - name: Add and sync Android
+        script: |
+          npx cap add android
+          npx cap sync android
+          node scripts/apply-branding.mjs android
+          node scripts/patch-native.mjs android
+      - name: Build test APK
+        script: |
+          cd android
+          ./gradlew assembleDebug
+    artifacts:
+      - android/app/build/outputs/**/*.apk
+
+  pure-work-ios-simulator:
+    name: Pure Work – iOS Simulator Build
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      vars:
+        PURE_WORK_URL: "https://YOUR-PURE-WORK-DOMAIN.TLD"
+        APP_ID: "de.purework.app"
+        APP_NAME: "Pure Work"
+    scripts:
+      - name: Install dependencies
+        script: npm install
+      - name: Configure Pure Work
+        script: node scripts/setup-app.mjs "$PURE_WORK_URL" "$APP_ID" "$APP_NAME" --noninteractive
+      - name: Add and sync iOS
+        script: |
+          npx cap add ios
+          npx cap sync ios
+          node scripts/apply-branding.mjs ios
+          node scripts/patch-native.mjs ios
+      - name: Build iOS simulator app
+        script: |
+          cd ios/App
+          xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug -sdk iphonesimulator -derivedDataPath build CODE_SIGNING_ALLOWED=NO
+    artifacts:
+      - ios/App/build/Build/Products/Debug-iphonesimulator/*.app

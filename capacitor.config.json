@@ -1,0 +1,25 @@
+{
+  "appId": "de.purework.app",
+  "appName": "Pure Work",
+  "webDir": "www",
+  "backgroundColor": "#F6F8FC",
+  "server": {
+    "url": "https://1248977.eu15.myftpupload.com",
+    "cleartext": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "launchAutoHide": true,
+      "backgroundColor": "#F6F8FC",
+      "showSpinner": false
+    },
+    "PushNotifications": {
+      "presentationOptions": [
+        "badge",
+        "sound",
+        "alert"
+      ]
+    }
+  }
+}

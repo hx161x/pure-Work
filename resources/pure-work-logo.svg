@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180">
+  <g transform="translate(34 32) scale(4)">
+    <rect x="2" y="7" width="18" height="18" rx="8" fill="#3157F6" transform="rotate(45 11 16)"/>
+    <rect x="15" y="2" width="13" height="13" rx="6.5" fill="#7F95FF" transform="rotate(45 21.5 8.5)"/>
+  </g>
+  <text x="184" y="119" font-family="Inter, Arial, sans-serif" font-size="88" letter-spacing="-3.2" fill="#101828" font-weight="600">pure <tspan font-weight="900">work</tspan></text>
+</svg>
