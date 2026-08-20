@@ -4,7 +4,7 @@ workflows:
     max_build_duration: 60
     environment:
       vars:
-        PURE_WORK_URL: "https://YOUR-PURE-WORK-DOMAIN.TLD"
+        PURE_WORK_URL: "https://1248977.eu15.myftpupload.com"
         APP_ID: "de.purework.app"
         APP_NAME: "Pure Work"
     scripts:
@@ -31,7 +31,7 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       vars:
-        PURE_WORK_URL: "https://YOUR-PURE-WORK-DOMAIN.TLD"
+        PURE_WORK_URL: "https://1248977.eu15.myftpupload.com"
         APP_ID: "de.purework.app"
         APP_NAME: "Pure Work"
     scripts:
