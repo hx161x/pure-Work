@@ -48,6 +48,6 @@ workflows:
       - name: Build iOS simulator app
         script: |
           cd ios/App
-          xcodebuild -workspace ios/App/App.xcworkspace -scheme App -configuration Debug -sdk iphonesimulator -derivedDataPath build CODE_SIGNING_ALLOWED=NO
+          xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator -derivedDataPath build CODE_SIGNING_ALLOWED=NO
     artifacts:
       - ios/App/build/Build/Products/Debug-iphonesimulator/*.app
